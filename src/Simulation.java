@@ -9,14 +9,14 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Game {
+public class Simulation {
     Scanner scanner = new Scanner(System.in);
     HooverFactory hooverFactory = new HooverFactory();
 
     /**
-     * This method create a game with inputs provided by the user
+     * This method create a simulation with inputs provided by the user
      */
-    public void startGameWithUserInput() {
+    public void startSimulationWithUserInput() {
         int height = askForGridHeigth();
         int width = askForGridWidth();
         IHoover hoover = askForHooverPosition(height, width);
@@ -29,7 +29,7 @@ public class Game {
 
 
     /**
-     * This method create a game for test
+     * This method create a simulation for test
      * passing params instead of getting them from user inputs
      *
      * @param height           Longuer de la grille
@@ -40,7 +40,7 @@ public class Game {
      * @param ordersString     Chaine de caractere contenant les ordres
      */
 
-    public void startGameWithPlainInput(int height, int width, int x, int y, String initialDirection, String ordersString) {
+    public void startSimulationWithPlainInput(int height, int width, int x, int y, String initialDirection, String ordersString) {
         if (height >= 0 && width >= 0 && isValidDirection(initialDirection) && isValidOrderString(ordersString)) {
             IHoover hoover = hooverFactory.createHoover(x, y, initialDirection);
             Grid grid = new Grid(height, width, hoover);
